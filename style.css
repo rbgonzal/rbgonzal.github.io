@@ -1,0 +1,138 @@
+html, body {
+    height: 100vh;
+    width:100vw;
+    margin: 0;
+    padding:0;
+    font-family: 'Inter', sans-serif;
+font-family: 'Roboto', sans-serif;
+  }
+
+.sidenav {
+    height: 100vh;
+    width: 200px;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: #1F1F1F;
+    overflow-x: hidden;
+    padding-top: 20px;
+  }
+
+  .resume_body{
+   
+    background-color:#2b2b2e;
+    height: 150vh;
+    width: 100vw;
+    position: relative
+    }
+#content_body{
+    margin-left: 200px;
+    color: white;
+    position: absolute;
+    padding: 20px;
+    overflow:visible;
+    width: 80vw;
+    background-color:#2b2b2e;
+}
+    .tabs {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+      }
+      
+      .tabs li {
+        margin-bottom: 10px;
+      }
+      
+      .tabs a {
+        display: block;
+        padding: 10px;
+        background-color: #1F1F1F;
+        color: #fff;
+        text-decoration: none;
+      }
+      
+      .tabs a:hover {
+        background-color: #333;
+      }
+      
+      .tab-content {
+        display: none;
+        padding: 10px;
+        background-color: #fff;
+        border: 1px solid #ccc;
+      }
+      
+      .tab-content.active {
+        display: block;
+      }
+      
+#exp_title {
+   font-weight:bold;
+   color: #A49B62
+}
+
+#exp_time{
+    line-height:0.5;
+    font-style:italic;
+}
+
+ul{
+ line-height:1.5
+}
+
+h1 {
+    color:#AAAAAA
+}
+h2{
+    color:#7B939F
+}
+
+#exp_block{
+    margin-left: 25px;
+}
+
+#project_body{
+    align-items: center;
+}
+.grid-container {
+    display: grid;
+    grid-template-columns: auto auto auto;
+    justify-content: center;
+    padding: 10px;
+    column-gap: 50px;
+  }
+
+.grid-item{
+    border: 1px solid white;
+    border-color:white;
+    height:400px;
+    width:300px;
+}
+
+#header_content{
+    margin-top: auto;
+    font-size: 28px
+}
+.grid_header{
+    display:flex;
+    padding: 5px;
+    background-color: #A49B62;
+    height: 75px;
+
+}
+
+#project_content{
+    padding-top: 50px;
+}
+
+#header_description{
+    margin-top:auto;
+    padding: 10px
+}
+
+#header_description h1{
+    color: #7B939F;
+    font-size: 20px
+}
