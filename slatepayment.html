@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <header><h1> Slate Payment Integration with SIS</h1></header>
+    <button id="close" onclick="closeModal()">&times;</button> 
+
+   <h2>Problem:</h2> 
+    <p>
+    This campus has historically stuck with their legacy electronic payment system due to the established integration with their current SIS. I was not a part of the initial Slate implementation but it is my understanding that the main hold-up with using Slate payments is the lack of flexibility when generating a transaction file. More specifically, they needed a file with the following requirements:
+    </p>
+    <ol>
+        <li>The exported file needed to be a tab delimited .txt file </li>
+        <li>An 11-digit transaction id that needs to be generated for every individual payment </li>
+        <li>The file needs to split a single transaction into two rows, one for the debit amount and it’s specific general ledger number and the other for the credit amount that goes into a separate general ledger number. </li>
+    </ol>
+    <p>Slate already has an option for query outputs to be set to a .txt file so that is not a problem. The main hold-ups with this task lies within the 2nd and 3rd requirements since Slate does not have an out-of-the-box way to meet those requirements. </p>
+    <h2>Solution:</h2>
+    <p><em>Transcation ID</em></p>
+    <p>
+        Slate does generate a transaction ID, but it is only 6 digits long. My workaround instead was to generate a unique transaction ID by concatenating the students 7-digit campus ID# along with the timestamp of the payment in ‘hhmm’ format.    
+    </p>
+    <p><em>Splitting the transaction</em></p>
+    <p>
+        You can easily query for the credit and debit amounts in Slate, but the query builder will present that information in a single row per transaction. As mentioned previously, we need to not only have the file present them as separate rows, we also need to associate it with different general ledger numbers.  
+    </p>
+    <p>
+        I ended up writing a custom SQL statement that creates a temporary table for the debit amounts and their appropriate ledger number and then a separate temporary table for the credit amounts. I then combine both tables through a UNION statement and sort by the transaction ID# so they are properly grouped together. The file ends up looking something like:
+    </p>
+    <p>
+        <table>
+            <thead>
+            <th>Transcation ID</th>
+            <th>GL #</th>
+            <th>Debit</th>
+            <th>Credit</th>
+        </thead>
+        <tbody>
+            <tr>
+            <td>09279550401</td>
+            <td>123456789</td>
+            <td>100.00  </td>
+            <td>000.00</td>
+            </tr>
+            <tr>
+            <td>09279550401</td>
+            <td>987654321  </td>
+            <td>000.00  </td>
+            <td>100.00</td>
+            </tr>
+        </tbody>
+        </table>
+       
+    </p>
+    <h2>Reflection</h2>
+    <p>
+        I mainly focused on the operational solutions for this project, but this is the result of many meetings with stakeholders (business office, accounting, additional IT) who helped greatly in laying out the requirements and providing test case scenarios to ensure our solution was as comprehensive as possible. I should also note that Slate will always recommend using their query builder over custom SQL. I love working with SQL and believe there is more flexibility in doing so, but I tend to avoid it in the context of Slate because the more custom you get within your instance, the harder it will be to find technical support in the long run. I ended up using custom SQL in this case because it is necessary at this point in time. Every situation is different and I will always advocate for the solution that is most efficient and sustainable. 
+    </p>
+
+
+</body>
+</html>
