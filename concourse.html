@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="">
+    </head>
+    <body>
+        <header><h1> Concourse Global Match</h1></header>
+        <button id="close" onclick="closeModal()">&times;</button> 
+        <h2>Overview</h2> 
+        <p>
+            Concourse provides an in-depth explainer of their process online but in short, students create a profile online that includes their academic information and interests. Based off of this information, the student profile is matched with various institutions and those institutions can review and decide to give a student an admission offer on the spot. If a student accepts the offer, their profile is then sent to the campus. This is a fairly simple process in a vacuum but it potentially poses problems operationally since schools won’t receive the student data until AFTER the point of admission, which is the reverse of typical admission processes.  
+        </p>
+        <p>
+            For this particular institution’s process, there were a few things to consider:
+            <ul>
+                <li>What do we consider the application date for reporting purposes?</li>
+                <li>What steps of the typical workflow are missed that occur during the review process when this group is already considered an admit when they come into the system?</li>
+                <li>Do the communication plans stay the same? (Email reminders, upcoming events, letter of admission, admit portal, etc.) </li>
+            </ul>
+        </p>
+        <h2>Solution</h2>
+        <p>
+            After much discussion with the admissions team, we decided it was best to treat the admit offer through Global Match as conditional instead of automatically coding them as admitted. Additionally, we consider the ‘interest date’ listed on their Global Match profile to be their application date. When Global Match sends us the file of the ‘matched’ student, we put them into a holding pattern for counselors to do a final review. If approved, the student will be officially be coded as admit and will be looped into the general applicant workflow—meaning that their decision release will be the same as the rest of the general admit pool and they will also be given the same admission letter along with access to the admission portal. 
+        </p>
+        <h2>Reflection</h2>
+        <p>
+            This is another one of those cases where the challenge was more on the side of determining the best way to tweak the business process rather than the technical integration side. Setting up the file imports was fairly simple and it was just a matter of determining how that data is stored which is going to vary depending on your institution and process. My overall goal was to not add a whole workflow for a separate application process and I think we were able to seamlessly reconcile the two admission processes. 
+        </p>
+        <img src="screenshots/ticket1.JPG"></img>
+    </body>
+</html>
