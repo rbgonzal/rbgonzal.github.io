@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <header><h1> Custom Slate Ticketing System</h1></header>
+    <button id="close" onclick="closeModal()">&times;</button> 
+    <h2>Overview</h2> 
+    <p>
+        As usage increases and the business process expands within a school’s Slate instance, there are bound to be more issues that come up that address missed gaps in implementation. I wanted a way to manage the large volume of inquiries that were being submitted to the outlook inboxes of the Slate captains. Every campus I’ve worked at already has an established ticketing system for IT support through a third-party vendor such as JIRA and ZenDesk. Those products are great but the interfaces tend to be overwhelming for non-IT staff. I wanted to build something much simpler for the campus staff so they are not as intimidated to bring up issues. 
+       </p>
+    <h2>Solution</h2>
+    <p><em>Building the back-end structure</em></p>
+     <p>
+        Collecting the ticket information itself is straightforward since I will be using a standard Slate form. The tougher challenge is leveraging that form into a process that stores the inquiry but can also store potential comments and messages that are exchanged. 
+    </p>
+    <p>
+        My solution was to create a whole new dataset just to store the information for tickets. This allows me to create as many custom fields as I need without interfering with any other records in Slate. Additionally, I also made a new entity to store comments and messages exchanged between the requestor and the user working on the ticket. Each of these are updated through two respective forms and I leverage Slate’s form communications to send status confirmations and custom messages. 
+    </p>
+    <p><em>The Dashboard</em></p>
+    <p>
+        After I established the backend, I worked on building the dashboard which serves as the centralized site for submitting and resolving all tickets. Within Slate’s javascript framework, I was able to develop this and host it on a Slate portal:
+    </p>
+    <div id="screenshot_container">
+    <img src="/screenshots/ticket1.JPG"></img>
+    <img src="/screenshots/ticket2.JPG"></img>
+
+    <h2>Reflection</h2>
+    This ticket system has been used for about a year now and it has been mostly a success. We had about 150 tickets submitted with an average resolve time of 4 days. The other benefit of this ticketing system is that we can identify consistent pain points that have come up and address it in future trainings. Overall, I'm just happy it's actually getting used.
+</div>
+</body>
+</html>
