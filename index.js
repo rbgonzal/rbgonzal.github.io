@@ -16,7 +16,7 @@ function openProjects(){
 }
 
 function openModal(proj){
-    proj = slatepayment
+
     const modal_container = document.getElementById('modal_container')
     const modal_content = document.getElementById('modal_content')
     modal_container.style.display="block"
