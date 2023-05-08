@@ -1,5 +1,5 @@
 const content_body = document.getElementById('content_body')
-const slatepayment = 'slatepayment.html'
+
 function openTab1() {
     
     content_body.style.display = "block";
@@ -27,4 +27,13 @@ function openModal(proj){
 
 function closeModal(){
     document.getElementById("modal_container").style.display="none"
+}
+
+function openContact(type){
+    const contactInfo = document.getElementById(type)
+    if (contactInfo.style.display == "none") {
+        contactInfo.style.display = "block"
+    } else {
+        contactInfo.style.display = "none"
+    }
 }

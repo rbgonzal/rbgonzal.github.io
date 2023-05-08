@@ -7,6 +7,7 @@
         <title></title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.3/css/all.css">
         <link rel="stylesheet" href="style.css">
         <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -14,6 +15,30 @@
     </head>
     <body>
 <div class="sidenav">
+    <div id="profile">
+        <strong><p >Ruel Gonzales<br/><br/></strong></p>
+        <img src="/screenshots/headshot3.jpg" style="display:block; width:90px; height:auto; margin:0 auto; border-radius:50%;" /><span style="font-family:Arial,Helvetica,sans-serif;"><br />
+        <p>
+            <strong>
+            CRM Manager/<br/>
+            Systems Analyst
+        </strong>
+        </p>
+        <div id="contact">
+        <button onclick="openContact('email')"><i class="fa fa-envelope"></i></button>
+        <button onclick="openContact('phone')"><i class="fa fa-phone"></i></button>
+        <a href="https://www.linkedin.com/in/ruel-gonzales23/" target="_blank"><button><i class="fab fa-linkedin" ></i></button></a>
+        <div id="phone" style="display:none; margin-top: 10px">
+            <p>
+            (909) 702-4572
+        </p>
+        </div>
+            
+        <div id="email" style="display:none; margin-top:10px; font-size: 12px">
+            <p>ruel.gonzales23@gmail.com</p></div>
+ 
+    </div>
+    </div>
     <ul class="tabs">
         <li><a id="tab1" onclick="openTab1()" href="#resume">Resume</a></li>
         <li><a id="tab2" onclick="openProjects()" href="#project">Projects</a></li>
