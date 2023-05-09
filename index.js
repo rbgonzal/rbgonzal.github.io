@@ -45,3 +45,5 @@ function openContact(type){
         contactInfo.style.display = "none"
     }
 }
+
+openTab('tab1.html')
