@@ -15,6 +15,14 @@ function openProjects(){
     }).then((html) => content_body.innerHTML = html)
 }
 
+function openTab(tab_name){
+    content_body.style.display = "block";
+    fetch(tab_name).then((response) => {
+        return response.text()
+    }).then((html) => content_body.innerHTML = html)
+}
+
+
 function openModal(proj){
 
     const modal_container = document.getElementById('modal_container')

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Slate to Legacy</title>
+</head>
+<body>
+    <header><h1> Slate to Legacy SIS Integration</h1></header>
+    <button id="close" onclick="closeModal()">&times;</button> 
+    <h2>Overview</h2> 
+    <p>
+        This campus had a homegrown, COBOL based student information system. It has worked out great for a very long time but as more dedicated staff with institutional knowledge retire and business practices continues to evolve, it becomes time to look for modern solutions. This campus had purchased Slate a couple of years prior and was mainly used as a true CRM for the purposes of recruiting prospective students. Since Slate is such a dynamic product, leadership felt it would be best that all things admissions are driven through Slate. This includes course evaluation, application review, and transcript management. Most importantly, all of this admissions data needed to be integrated with the legacy system in order for student records to get through the enrollment funnel properly. Slate makes it very easy to query and export data but what made this project so challenging was the very rigid requirements on the legacy side.
+    </p>
+    <h2>Requirements </h2>
+    <p>
+        The legacy SIS only takes in a flat .txt file (not delimited) and cannot have any characters outside of letters and numbers. For example, the student GPA will have to be ‘400’ in the file and not ‘4.00’. What makes this even trickier is that every field has an exact space on the file so every data field has to align perfectly and has to be set to the proper length. To illustrate: let’s say the ‘first name’ has the first 10 spots on the file. If the name is more than 10 characters, then it needs to be truncated. If it is less, then we need to ensure the rest of the space is filled with null values so that the next field starts on the 11th spot. 
+    </p>
+    <h2>Solution</h2>
+    <p>
+        The good news is that this is all the requirements can be met through Slate with some custom SQL but a lot of reformatting and converting of the data is needed since this integration was not a priority when Slate was first implemented. I actually had to sit with other departments and other IT staff many times to drill down on their actual business process since we found that a lot of fields were holdover from old business processes and actually should have been deprecated. Through those meetings, we were able to construct a proper data dictionary along with a bunch of translation tables that can convert Slate data points into codes that the legacy SIS recognizes. After all that, it’s just a matter of building the queries in Slate and setting up the export schedule. The campus IT then wrapped everything up by developing the script that picks up the file, decrypts it, then imports it into the SIS. 
+    </p>
+    <h2>Reflection</h2>
+    <p>
+        This was my first major integration project and it was a true ‘baptism by fire’ experience for me. I only spent a year working in SQL up to that point so I wasn’t entirely aware of what the best approach should be. Luckily for me, the only priority to the campus was that it worked so they didn’t care as much that I was brute forcing a lot of it, especially when I was only given a few months to get it done. In hindsight, I should have really honed in on using staging tables in my SQL code to make those queries run a lot of efficiently. This is a very common practice when working with relational database so it just goes to show you how green I was. Technical solutions aside, what I found the biggest uphill climb to be was re-solidifying the business practices of the departments we were working with. In my experience, it is a lot more common for departments to not fix what isn’t broken, so it can be tough to get answers for questions to why something is set up a certain way. You can have the sleekest product in the world with the most efficiently written code but none of it matters if you don’t know the business process. I understand the reasons why this may be but from a systems standpoint, it makes for a much better student experience if everyone is working through a centralized system. It truly takes a village for a campus to be successful so the more inclusive you can be within your process, the more sustainable it will be. 
+    </p>
+</body>
+</html>
